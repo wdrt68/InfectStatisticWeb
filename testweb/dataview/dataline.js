@@ -23,8 +23,14 @@
 			});
 			return dates, num;
 		}
+		function monthDay(){
+			for(var i = 0; i < dates.length; i++){
+				dates[i] = dates[i].substring(5);
+			} 
+		}
 		//执行异步请求
 		getusers();
+		monthDay();
 	// 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('map'));
 
@@ -40,7 +46,11 @@
     	xAxis: {
 			axisLabel: {  
 			   interval:0,  
-			   rotate:40  
+			   rotate:40,  
+			   textStyle: {
+			        color: '#000000',
+			        fontSize:'16'
+			    }
 			},  
     		data: dates
     	},

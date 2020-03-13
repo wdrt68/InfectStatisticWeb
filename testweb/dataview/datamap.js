@@ -80,7 +80,7 @@ mapGetusers();
             },
             series : [
                 {
-                    name: '累计确诊',
+                    name: '现有确诊',
                     type: 'map',
                     geoIndex: 0,
                     data:dataList

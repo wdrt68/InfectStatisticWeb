@@ -52,7 +52,7 @@ function n_fetchAll($sql){
 			$user = new User();
 			$user->province = $row['p_name'];
 			$user->dates = $row['p_date'];
-			$user->num = $row['ip'];
+			$user->num = $row['c_ip'];
 			$datas[] = $user;
 		}
 		return $datas;
