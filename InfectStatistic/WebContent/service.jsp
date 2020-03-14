@@ -26,9 +26,8 @@
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="indexServlet">疫情动态</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="map.jsp">迁移地图</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="service.jsp">疫情服务</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="current.jsp">实时播报</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="live.jsp">疫情直播</a></li>
                     <li class="nav-item" role="presentation"></li>
                 </ul>
             </div>
@@ -40,9 +39,9 @@
                 <div class="block-heading">
                     <h2 class="text-info">爱心捐赠</h2>
                     <div class="row">
-                        <div class="col-4"><img class="border rounded" style="width: 300px;height: 200px;"></div>
-                        <div class="col-4"><img class="border rounded" style="width: 300px;height: 200px;"></div>
-                        <div class="col-4"><img class="border rounded" style="width: 300px;height: 200px;"></div>
+                        <div class="col-4"><img id="hanhong" src="assets/img/local/hanhong.svg" class="border rounded" style="width: 300px;height: 200px;"></div>
+                        <div class="col-4"><img id="hubeired" src="assets/img/local/hubeired.svg" class="border rounded" style="width: 300px;height: 200px;"></div>
+                        <div class="col-4"><img id="chinared" src="assets/img/local/chinared.svg"class="border rounded" style="width: 300px;height: 200px;"></div>
                     </div>
                 </div>
                 <div class="block-heading">
@@ -51,11 +50,11 @@
                         <div class="col-1">
                             <p></p>
                         </div>
-                        <div class="col-5"><img style="width: 300px;height: 200px;">
-                            <h3 class="booklet">返程返工</h3>
+                        <div class="col-5"><img id="backwork" src="assets/img/local/backwork.svg" style="width: 300px;height: 200px;">
+                            <h4 class="booklet">返程返工</h4>
                         </div>
-                        <div class="col-5"><img style="width: 300px;height: 200px;">
-                            <h3 class="booklet">家庭防护</h3>
+                        <div class="col-5"><img id="family" src="assets/img/local/family.svg" style="width: 300px;height: 200px;">
+                            <h4 class="booklet">家庭防护</h4>
                         </div>
                         <div class="col-1">
                             <p></p>
@@ -65,11 +64,11 @@
                         <div class="col-1">
                             <p></p>
                         </div>
-                        <div class="col-5"><img style="width: 300px;height: 200px;">
-                            <h3 class="booklet">体温监测</h3>
+                        <div class="col-5"><img id="temperature" src="assets/img/local/temperature.svg" style="width: 300px;height: 200px;">
+                            <h4 class="booklet">体温监测</h4>
                         </div>
-                        <div class="col-5"><img style="width: 300px;height: 200px;">
-                            <h3 class="booklet">心里调节</h3>
+                        <div class="col-5"><img id="mental" src="assets/img/local/mental.svg" style="width: 300px;height: 200px;">
+                            <h4 class="booklet">心里调节</h4>
                         </div>
                         <div class="col-1">
                             <p></p>
@@ -80,42 +79,6 @@
         </section>
     </main>
     <footer class="page-footer light">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <h5>Get started</h5>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Sign up</a></li>
-                        <li><a href="#">Downloads</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>About us</h5>
-                    <ul>
-                        <li><a href="#">Company Information</a></li>
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Reviews</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>Support</h5>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Help desk</a></li>
-                        <li><a href="#">Forums</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>Legal</h5>
-                    <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
         <div class="footer-copyright">
             <p>© 221701218 221701220 第二次结对作业</p>
         </div>
@@ -125,6 +88,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="assets/js/smoothproducts.min.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="assets/js/service.js"></script>
 </body>
 
 </html>
