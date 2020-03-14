@@ -6,6 +6,5 @@
 	$con->query("SET NAMES utf8");
 	$datas = provinceFetchAll($sql);
 	echo json_encode($datas);
-	
 	$con = null;
 ?>
