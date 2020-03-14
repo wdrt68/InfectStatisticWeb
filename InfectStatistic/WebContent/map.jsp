@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html>
+
+<%@ page language="java" contentType="text/html;charset=UTF-8"
+         pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix='fmt' %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<html lang="zh-CN">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - Brand</title>
+    <title>迁移地图</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -18,66 +25,23 @@
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html">疫情动态</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="map.html">迁移地图</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="service.html">疫情服务</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="current.html">实时播报</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="indexServlet">疫情动态</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="map.jsp">迁移地图</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="service.jsp">疫情服务</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="current.jsp">实时播报</a></li>
                     <li class="nav-item" role="presentation"></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <main class="page landing-page">
-        <section class="clean-block clean-info dark">
-            <div class="container">
-                <div class="block-heading">
-                    <h2 class="text-info">全国疫情数据一览</h2>
-                    <div class="row" id="dateRow">
-                        <div class="col-8">
-                            <p></p>
-                        </div>
-                        <div class="col-4"><strong class="text-left" id="datechoose">选择日期：</strong><input id="dataDate" type="date"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-1">
-                            <p></p>
-                        </div>
-                        <div class="col-5"><strong>累计确诊</strong>
-                            <p class="text-danger dataLabel" id="sp">12345</p>
-                            <p>较昨日&nbsp;</p>
-                            <p class="text-danger n_dataLabel">+12345</p>
-                        </div>
-                        <div class="col-5"><strong class="text-center">现有疑似</strong>
-                            <p class="text-warning dataLabel" id="cure">22222</p>
-                            <p>较昨日&nbsp;</p>
-                            <p class="text-warning n_dataLabel">-152</p>
-                        </div>
-                        <div class="col-1">
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="row" id="seconedRow">
-                        <div class="col-1">
-                            <p></p>
-                        </div>
-                        <div class="col-5"><strong>累计治愈</strong>
-                            <p class="text-success dataLabel" id="dead">55555</p>
-                            <p>较昨日&nbsp;</p>
-                            <p class="text-success n_dataLabel">+233</p>
-                        </div>
-                        <div class="col-5"><strong>累计死亡</strong>
-                            <p class="text-dark dataLabel" id="dead">11111</p>
-                            <p>较昨日&nbsp;</p>
-                            <p class="text-dark n_dataLabel">-12</p>
-                        </div>
-                        <div class="col-1">
-                            <p></p>
-                        </div>
-                    </div>
-                    <h2 class="text-info">各省疫情一览图</h2><strong class="text-left" id="datechoose">选择日期：</strong><input id="mapDate" type="date">
+    <main class="page">
+        <section class="clean-block features" style="height: 875px;">
+            <div class="container" style="height: 875px;">
+                <div class="block-heading" style="height: 875px;">
+                    <h2 class="text-info">疫情迁移地图</h2>
                     <p>数据纯属虚构，仅供作业展示使用</p>
-                    <p>The data is unreal which is used for homework display only.</p>
-                    <div id="map" style="height: 600px;width: 800px;"></div>
+                    <p>The data is unreal which is used for homework display only.<br></p>
+                    <div id="map" style="height: 600px;"></div>
                 </div>
             </div>
         </section>

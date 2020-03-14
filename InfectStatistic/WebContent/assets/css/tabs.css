@@ -1,0 +1,24 @@
+#mapArea {
+	margin: 1em;
+}
+
+#mapArea div {
+	display: none;
+}
+
+#mapArea div.showed {
+    display: block;
+    margin: 0 auto;
+}
+
+#map1 {
+	background-color: red;
+}
+
+#map2 {
+	background-color: green;
+}
+
+#map3 {
+	background-color: blue;
+}
