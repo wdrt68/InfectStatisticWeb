@@ -12,7 +12,29 @@ function dbInit(){
 	
 }
 
-
+function provinceFetchAll($sql){
+	global $con;
+	class user{
+		public $dates;
+		public $num;
+	}
+	if($result = $con->query($sql)){
+		
+		$datas = array();
+		$num_results = $result->num_rows;
+		for($i = 0; $i < $num_results; $i++){
+			$row = $result->fetch_assoc();
+			$user = new User();
+			$user->dates = $row['p_date'];
+			$user->num = $row['n_ip'];
+			$datas[] = $user;
+		}
+		return $datas;
+	}else{
+		return false;
+	}
+	
+}
 
 function nationFetchAll($sql){
 	global $con;
