@@ -25,16 +25,15 @@
 	
 </head>
 
-<body>
+<body style="background-color : skyblue;">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
         <div class="container"><a class="navbar-brand logo" href="#">某次疫情统计数据展示</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="indexServlet">疫情动态</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="map.jsp">迁移地图</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="service.jsp">疫情服务</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="current.jsp">实时播报</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="live.jsp">疫情直播</a></li>
                     <li class="nav-item" role="presentation"></li>
                 </ul>
             </div>
@@ -81,7 +80,7 @@
                             <p></p>
                         </div>
                     </div>
-                    <div class="row" id="seconedRow">
+                    <div class="row" id="secondRow">
                         <div class="col-1">
                             <p></p>
                         </div>
@@ -354,42 +353,6 @@
         </section>
     </main>
     <footer class="page-footer light">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <h5>Get started</h5>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Sign up</a></li>
-                        <li><a href="#">Downloads</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>About us</h5>
-                    <ul>
-                        <li><a href="#">Company Information</a></li>
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Reviews</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>Support</h5>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Help desk</a></li>
-                        <li><a href="#">Forums</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>Legal</h5>
-                    <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
         <div class="footer-copyright">
             <p>© 221701218 221701220 第二次结对作业</p>
         </div>
