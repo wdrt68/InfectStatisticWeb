@@ -3,8 +3,8 @@
 结对学号 221701218 221701220
 
 ## 作业链接
-作业要求：<#>
-作业仓库：<#>
+作业要求：<https://edu.cnblogs.com/campus/fzu/2020SpringW/homework/10456>
+作业仓库：<https://github.com/wdrt68/InfectStatisticWeb>
 
 ## 程序介绍
 jsp/servlet + bootstrap + echarts实现的疫情统计可视化的Web应用
