@@ -12,12 +12,7 @@ function initialize() {
 
     var url = window.location.search;
     if(url.indexOf("?") < 0) {
-        //var time = new Date();
-        //var day = ("0" + time.getDate()).slice(-2);
-        //var month = ("0" + (time.getMonth() + 1)).slice(-2);
-    
-        //dataDate.value = time.getFullYear() + "-" + month + "-" + day;
-        dataDate.value = "2020-03-12";
+        dataDate.value = "2020-03-13";
     }
     else {
         dataDate.value = url.split("=")[1];

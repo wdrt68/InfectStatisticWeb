@@ -1,12 +1,13 @@
 var buttons;
-var maps;
+var tabs;
 
-window.onload = initialize;
+initialize();
 
 function initialize()
 {
     buttons = document.getElementById('buttons').getElementsByTagName('button');
-    maps = document.getElementById('mapArea').getElementsByTagName('div');
+    tabs = document.getElementById('mapArea').getElementsByClassName('tab');
+    tabs[0].className = 'showed';
     changeTab();
 }
 
@@ -18,10 +19,10 @@ function changeTab() {
 function showTab() {
     for(var i = 0; i<buttons.length; i++) {
         if(buttons[i] === event.srcElement) {
-            maps[i].className = 'showed';
+            tabs[i].className = 'showed';
         } 
         else {
-            maps[i].className = '';
+            tabs[i].className = 'tab';
         }
     }
 }

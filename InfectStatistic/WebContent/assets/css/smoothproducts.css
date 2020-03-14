@@ -202,7 +202,7 @@ b, strong {
   letter-spacing: 4pt;
 }
 
-#seconedRow {
+#secondRow {
   margin-bottom: 2em;
 }
 
@@ -225,3 +225,19 @@ b, strong {
   padding-bottom: 2em;
 }
 
+.booklet {
+	margin-top: 1ex;
+	margin-bottom: 2ex;
+}
+
+img {
+  border-radius: 25pt;
+}
+
+img:hover{
+  opacity: 0.5;
+}
+
+canvas {
+	margin: 0 auto;
+}
