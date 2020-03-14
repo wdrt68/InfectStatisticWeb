@@ -1,18 +1,18 @@
 <?php
 function dbInit(){
 	global $con;
-	$servername = "localhost";
-	$username = "root";
+	$serverName = "localhost";
+	$userName = "root";
 	$password = "123456";
-	$dbname = "infectstatistic";
-	$con = new mysqli($servername, $username, $password, $dbname);
+	$dbName = "infectstatistic";
+	$con = new mysqli($serverName, $userName, $password, $dbName);
 	if(mysqli_connect_errno()){
 		die("连接失败: " . mysqli_connect_error());
 	}
 	
 }
 
-function p_fetchAll($sql){
+function provinceFetchAll($sql){
 	global $con;
 	class user{
 		public $dates;
@@ -36,7 +36,7 @@ function p_fetchAll($sql){
 	
 }
 
-function n_fetchAll($sql){
+function nationFetchAll($sql){
 	global $con;
 	class user{
 		public $province;

@@ -4,9 +4,7 @@
 	$province = '上海';
 	$sql = "select * from province where p_name='{$province}'";
 	$con->query("SET NAMES utf8");
-	$datas = p_fetchAll($sql);
-	//print_r($datas);
-	//echo "</br>";
+	$datas = provinceFetchAll($sql);
 	echo json_encode($datas);
 	
 	$con = null;
