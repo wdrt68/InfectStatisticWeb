@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
          pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -17,7 +19,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/smoothproducts.css">
-    <link rel="stylesheet" href="assets/css/tabs.css"/>
     
     <script src="assets/js/echarts.min.js"></script>
 	<script src="assets/js/china.js" ></script>
@@ -31,9 +32,8 @@
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="indexServlet">疫情动态</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="map.jsp">迁移地图</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="service.jsp">疫情服务</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="current.jsp">实时播报</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="live.jsp">疫情直播</a></li>
                     <li class="nav-item" role="presentation"></li>
                 </ul>
             </div>
@@ -88,60 +88,208 @@
                     <h2 class="text-info"><%=request.getAttribute("name") %>疫情走势图</h2>
                     <p>数据纯属虚构，仅供作业展示使用</p>
                     <p>The data is unreal which is used for homework display only.</p>
+                    
+                    <% List<String> dateStrings = (ArrayList<String>)request.getAttribute("dateStrings"); %>
+                    
                     <div id="mapArea">
-	                    <div class="showed" id="map1" style="height: 600px;width: 800px;">
+                    
+                    	<button class="btn btn-primary border-dark" type="button">新增确诊 走势</button>
+	                    <div id="map1" style="height: 600px;width: 1100px;">
+	                    <script>
+	                    var myChart1 = echarts.init(document.getElementById("map1"));
+                    	option1 = {
+                    		    title: {
+                    		        text: '现有确诊人数走势图'
+                    		    },
+                    		    tooltip: {
+                    		        trigger: 'axis'
+                    		    },
+                    		    grid: {
+                    		        left: '3%',
+                    		        right: '4%',
+                    		        bottom: '3%',
+                    		        containLabel: true
+                    		    },
+                    		    xAxis: {
+                    		        type: 'category',
+                    		        boundaryGap: false,
+                    		        data: 
+                    		        [
+                    		        	<%
+                    		        		for(int i=0; i<dateStrings.size(); i++) {
+                    		        	%>
+                    		        	<%="\'" + dateStrings.get(i) + "\',"%>
+                    		        	<%	
+                    		        		}
+                    		        	%>
+                    		        ]
+                    		    },
+                    		    yAxis: {
+                    		        type: 'value'
+                    		    },
+                    		    series: [
+                    		        {
+                    		            name: '现有确诊',
+                    		            type: 'line',
+                    		            smooth: true,
+                    		            stack: '总量',
+                    		            data: 
+                    		            [
+	                    		        	<%
+	                    		        		List<Integer> cIpList = (ArrayList<Integer>)request.getAttribute("cIpList");
+	                    		        		for(int i=0; i<cIpList.size(); i++) {
+	                    		        	%>
+	                    		        	<%=cIpList.get(i) + ","%>
+	                    		        	<%	
+	                    		        		}
+	                    		        	%>
+                    		            ]
+                    		        }
+                    		    ]
+                    		};
+                    	myChart1.setOption(option1);
+	                    </script>
 	                    </div>
-	                    <div id="map2" style="height: 600px;width: 800px;">
+	                    
+	                    <button class="btn btn-primary border-dark" type="button">累计确诊 走势</button>
+	                    <div id="map2" style="height: 600px;width: 1100px;">
+	                    <script>
+	                    var myChart2 = echarts.init(document.getElementById("map2"));
+                    	option2 = {
+                    		    title: {
+                    		        text: '累计确诊人数走势图'
+                    		    },
+                    		    tooltip: {
+                    		        trigger: 'axis'
+                    		    },
+                    		    grid: {
+                    		        left: '3%',
+                    		        right: '4%',
+                    		        bottom: '3%',
+                    		        containLabel: true
+                    		    },
+                    		    xAxis: {
+                    		        type: 'category',
+                    		        boundaryGap: false,
+                    		        data: 
+                    		        [
+                    		        	<%
+                    		        		for(int i=0; i<dateStrings.size(); i++) {
+                    		        	%>
+                    		        	<%="\'" + dateStrings.get(i) + "\',"%>
+                    		        	<%	
+                    		        		}
+                    		        	%>
+                    		        ]
+                    		    },
+                    		    yAxis: {
+                    		        type: 'value'
+                    		    },
+                    		    series: [
+                    		        {
+                    		            name: '累计确诊',
+                    		            type: 'line',
+                    		            smooth: true,
+                    		            stack: '总量',
+                    		            data: 
+                    		            [
+	                    		        	<%
+	                    		        		List<Integer> ipList = (ArrayList<Integer>)request.getAttribute("ipList");
+	                    		        		for(int i=0; i<ipList.size(); i++) {
+	                    		        	%>
+	                    		        	<%=ipList.get(i) + ","%>
+	                    		        	<%	
+	                    		        		}
+	                    		        	%>
+                    		            ]
+                    		        }
+                    		    ]
+                    		};
+                    	myChart2.setOption(option2);
+
+	                    </script>
 	                    </div>
-	                    <div id="map3" style="height: 600px;width: 800px;">
+	                    
+	                    <button class="btn btn-primary border-dark" type="button">治愈/死亡 走势</button>
+	                    <div id="map3" style="height: 600px;width: 1100px;">
+	                    <script>
+	                    var myChart3 = echarts.init(document.getElementById("map3"));
+                    	option3 = {
+                    		    title: {
+                    		        text: '治愈/死亡人数走势图'
+                    		    },
+                    		    tooltip: {
+                    		        trigger: 'axis'
+                    		    },
+                    		    grid: {
+                    		        left: '3%',
+                    		        right: '4%',
+                    		        bottom: '3%',
+                    		        containLabel: true
+                    		    },
+                    		    xAxis: {
+                    		        type: 'category',
+                    		        boundaryGap: false,
+                    		        data: 
+                    		        [
+                    		        	<%
+                    		        		for(int i=0; i<dateStrings.size(); i++) {
+                    		        	%>
+                    		        	<%="\'" + dateStrings.get(i) + "\',"%>
+                    		        	<%	
+                    		        		}
+                    		        	%>
+                    		        ]
+                    		    },
+                    		    yAxis: {
+                    		        type: 'value'
+                    		    },
+                    		    series: [
+                    		        {
+                    		            name: '累计治愈',
+                    		            type: 'line',
+                    		            smooth: true,
+                    		            data: 
+                    		            [
+	                    		        	<%
+	                    		        		List<Integer> cureList = (ArrayList<Integer>)request.getAttribute("cureList");
+	                    		        		for(int i=0; i<cureList.size(); i++) {
+	                    		        	%>
+	                    		        	<%=cureList.get(i) + ","%>
+	                    		        	<%	
+	                    		        		}
+	                    		        	%>
+                    		            ]
+                    		        },
+                    		        {
+                    		            name: '累计死亡',
+                    		            type: 'line',
+                    		            data: 
+                    		            [
+	                    		        	<%
+	                    		        		List<Integer> deadList = (ArrayList<Integer>)request.getAttribute("deadList");
+	                    		        		for(int i=0; i<deadList.size(); i++) {
+	                    		        	%>
+	                    		        	<%=deadList.get(i) + ","%>
+	                    		        	<%	
+	                    		        		}
+	                    		        	%>
+                    		            ]
+                    		        }
+                    		    ]
+                    		};
+                    	myChart3.setOption(option3);
+
+	                    </script>
 	                    </div>
+	                    
                     </div>
-                    <div id="buttons" class="btn-group btn-group-lg border-dark" role="group">
-	                    <button class="btn btn-primary border-dark" type="button">新增确诊<br/>走势</button>
-	                    <button class="btn btn-primary border-dark" type="button">累计确诊<br/>走势</button>
-	                    <button class="btn btn-primary border-dark" type="button">治愈/死亡<br/>走势</button>
-                    </div>
+                    
                 </div>
             </div>
         </section>
     </main>
     <footer class="page-footer light">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <h5>Get started</h5>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Sign up</a></li>
-                        <li><a href="#">Downloads</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>About us</h5>
-                    <ul>
-                        <li><a href="#">Company Information</a></li>
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Reviews</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>Support</h5>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Help desk</a></li>
-                        <li><a href="#">Forums</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>Legal</h5>
-                    <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
         <div class="footer-copyright">
             <p>© 221701218 221701220 第二次结对作业</p>
         </div>
@@ -152,7 +300,6 @@
     <script src="assets/js/smoothproducts.min.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/detialevents.js"></script>
-    <script src="assets/js/tabs.js"></script>
 </body>
 
 </html>
